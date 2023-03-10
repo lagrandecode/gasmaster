@@ -9,3 +9,10 @@ class ProductModel(models.Model):
     selling_price = models.PositiveIntegerField()
     photo = models.ImageField()
     kg = models.PositiveIntegerField()
+
+
+#This class will show the news in the carousel 
+class GasNews(models.Model):
+    news_image = models.ImageField()
+    news_desc = models.CharField(max_length=1000)
+    news_link = models.URLField()
