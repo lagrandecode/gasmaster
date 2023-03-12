@@ -18,10 +18,12 @@ class CustomerAdmin(admin.ModelAdmin):
 admin.site.register(Customer,CustomerAdmin)
 
 
-admin.site.register(Order)
+
 class OrderAdmin(admin.ModelAdmin):
     list_display = ('email','address','mobile','delivery_status')
+admin.site.register(Order,OrderAdmin)
 
-admin.site.register(Feedback)
+
 class FeedbackAdmin(admin.ModelAdmin):
     list_display = ('name','feedback','date')
+admin.site.register(Feedback,FeedbackAdmin)
