@@ -23,6 +23,8 @@ class GasNews(models.Model):
     created_date = models.DateField(auto_now_add=True)
 
 class Customer(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    profile_pics = models.ImageField(upload_to='images/',null=True,blank=True)
 
 
 
