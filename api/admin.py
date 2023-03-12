@@ -9,7 +9,7 @@ admin.site.register(Product,ProductAdmin)
 
 
 class GasNewsAdmin(admin.ModelAdmin):
-    list_display = ('news_link')
+    list_display = ('news_link',)
 admin.site.register(GasNews,GasNewsAdmin)
 
 
