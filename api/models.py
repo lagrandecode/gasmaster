@@ -34,10 +34,6 @@ class Customer(models.Model):
     mobile = models.CharField(max_length=200, null=False)
 
 
-
-
-
-
 class Order(models.Model):
     STATUS = (
         ('Pending','Pending'),
