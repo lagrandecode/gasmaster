@@ -24,8 +24,6 @@ class GasNews(models.Model):
     created_date = models.DateField(auto_now_add=True)
 
 
-
-
 class Customer(models.Model):
     name = models.CharField(max_length=250)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -48,7 +46,6 @@ class Order(models.Model):
     address = models.CharField(max_length=500,null=True)
     mobile = models.CharField(max_length=20,null=True)
     order_date= models.DateField(auto_now_add=True,null=True)
-
 
 
 class Feedback(models.Model):
