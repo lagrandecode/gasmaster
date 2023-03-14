@@ -23,7 +23,7 @@ class GasNews(models.Model):
     news_link = models.URLField()
     created_date = models.DateField(auto_now_add=True)
 
-
+# This is customer model 
 class Customer(models.Model):
     name = models.CharField(max_length=250)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
@@ -32,6 +32,7 @@ class Customer(models.Model):
     mobile = models.CharField(max_length=200, null=False)
 
 
+# This is order model 
 class Order(models.Model):
     STATUS = (
         ('Pending','Pending'),
