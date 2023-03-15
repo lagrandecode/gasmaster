@@ -23,6 +23,8 @@ class GasNews(models.Model):
     news_link = models.URLField()
     created_date = models.DateField(auto_now_add=True)
 
+
+
 # This is customer model 
 class Customer(models.Model):
     name = models.CharField(max_length=250)
@@ -30,6 +32,7 @@ class Customer(models.Model):
     profile_pics = models.ImageField(upload_to='images/',null=True,blank=True)
     address = models.CharField(max_length=100)
     mobile = models.CharField(max_length=200, null=False)
+
 
 
 # This is order model 
@@ -47,6 +50,8 @@ class Order(models.Model):
     address = models.CharField(max_length=500,null=True)
     mobile = models.CharField(max_length=20,null=True)
     order_date= models.DateField(auto_now_add=True,null=True)
+
+
 
 
 class Feedback(models.Model):
