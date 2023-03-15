@@ -18,7 +18,7 @@ def api_list(request):
         serializers = ProductSerializers(api,many=True)
         return Response(serializers.data)
     elif request.method == 'POST':
-        data = JSONParser.parse(request)
+        data = JSONParser().parse(request)
         serializers = ProductSerializers(data=data)
         if serializers.is_valid():
             serializers.save()
