@@ -76,4 +76,7 @@ def news_view(request,pk):
             serializers.save()
             return Response(serializers.data)
         return Response(serializers.data,status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        news.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
         
