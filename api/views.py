@@ -11,6 +11,8 @@ from .models import *
 
 # Create your views here.
 
+
+#this is the product feed
 @api_view(['GET','POST'])
 def product_list(request):
     if request.method == 'GET':
@@ -24,6 +26,8 @@ def product_list(request):
             serializers.save()
             return Response(serializers.data, status=status.HTTP_201_CREATED)
         return Response(serializers.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 
 @api_view(['GET','PUT','DELETE'])
@@ -60,6 +64,9 @@ def news_list(request):
             return Response(serializers.data)
         return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
 
+
+
+#this is the news feed 
 @api_view(['GET','PUT','DELETE'])
 def news_view(request,pk):
     try:
