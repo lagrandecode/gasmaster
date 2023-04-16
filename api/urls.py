@@ -7,8 +7,11 @@ from django.conf.urls import static
 
 
 urlpatterns = [
-    path('',views.api_list),
-    path('',views.product_view),
+    path('',views.product_list),
+    path('<int:pk>',views.product_view),
+    path('',views.news_list),
+    path('<int:pk>',views.news_view),
+
 ]
 
 if settings.DEBUG:
