@@ -9,7 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.product_list),
     path('<int:pk>',views.product_view),
-    path('',views.news_list),
+    path('news/',views.news_list),
     path('<int:pk>',views.news_view),
 
 ]
