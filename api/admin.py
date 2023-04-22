@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product,GasNews,Order,Customer,Feedback
+from .models import Product,GasNews,Customer,Feedback
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
@@ -19,9 +19,7 @@ admin.site.register(Customer,CustomerAdmin)
 
 
 
-class OrderAdmin(admin.ModelAdmin):
-    list_display = ('email','address','mobile','delivery_status')
-admin.site.register(Order,OrderAdmin)
+
 
 
 class FeedbackAdmin(admin.ModelAdmin):
