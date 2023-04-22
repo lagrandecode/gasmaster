@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 # from rest_framework import APIView
 from rest_framework import status
 from .models import Order
@@ -9,6 +10,7 @@ from . import serializers
 
 
 class OrderListView(generics.GenericAPIView):
+    permission_classes = [IsAuthenticated]
     serializer_class = serializers.OrderSerializer
     queryset = Order.objects.all()
     def get(self,request):
