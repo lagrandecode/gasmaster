@@ -17,8 +17,10 @@ class OrderListView(generics.GenericAPIView):
         order = Order.objects.all()
         serializers = self.serializer_class(order,many=True)
         return Response(serializers.data,status=status.HTTP_200_OK)
-        
 
+
+class OrderListViewPost(generics.GenericAPIView):
+    permission_classes = [IsAdminUser]
     def post(self,request):
         print(request)
         serializers = self.serializer_class(data=request.data)
