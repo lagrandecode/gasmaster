@@ -22,6 +22,8 @@ def product_list(request):
         return Response(serializers.data)
     elif request.method == 'POST':
         data = JSONParser().parse(request)
+        print(data)
+        print(request)
         serializers = ProductSerializers(data=data)
         if serializers.is_valid():
             serializers.save()
