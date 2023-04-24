@@ -20,6 +20,7 @@ class OrderListView(generics.GenericAPIView):
 
 
 class OrderListViewPost(generics.GenericAPIView):
+    serializer_class = serializers.OrderSerializer
     permission_classes = [IsAdminUser]
     def post(self,request):
         print(request)
@@ -35,12 +36,12 @@ class OrderDetailView(generics.GenericAPIView):
     permission_classes = [IsAdminUser]
     def get(self,request,pk):
         order = get_object_or_404(Order,id=pk)
-        serializers = self.get_serializer_class(order)
+        serializers = self.serializer_class(order)
         return Response(serializers.data,status=status.HTTP_200_OK)
 
     def put(self,request,pk):
         order = get_object_or_404(Order,id=pk)
-        serializers = self.get_serializer_class(data=request.data,instance=order)
+        serializers = self.serializer_class(data=request.data,instance=order)
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data,status=status.HTTP_201_CREATED)
