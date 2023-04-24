@@ -51,3 +51,16 @@ class OrderDetailView(generics.GenericAPIView):
         order = get_object_or_404(Order,id=pk)
         order.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+class UpdateStatusView(generics.GenericAPIView):
+    serializer_class = serializers.UpdateOrderSerializer
+    permission_classes = [IsAdminUser]
+    def put(self,request,pk):
+        order = get_object_or_404(Order,id=pk)
+        serializers = self.serializer_class(data=request.data,instance=order)
+        if serializers.is_valid():
+            serializers.save()
+            return Response(serilizers.data,status=status.HTTP_201_CREATED)
+        return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
+        
