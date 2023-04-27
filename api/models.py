@@ -50,6 +50,9 @@ class Feedback(models.Model):
     feedback=models.CharField(max_length=500)
     date= models.DateField(auto_now_add=True,null=True)
 
+    class Meta:
+        verbose_name_plural = 'Feedback'
+
 
 
 
