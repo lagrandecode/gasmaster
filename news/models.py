@@ -7,5 +7,6 @@ from django.db import models
 class GasNews(models.Model):
     news_image = models.ImageField()
     news_desc = models.CharField(max_length=1000)
+    content = models.CharField(max_length=5000)
     news_link = models.URLField()
     created_date = models.DateField(auto_now_add=True)

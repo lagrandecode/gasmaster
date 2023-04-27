@@ -1,16 +1,10 @@
 from django.contrib import admin
-from .models import Product,GasNews,Customer,Feedback
+from .models import Product,Customer,Feedback
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('product_name','photo','discount','selling_price')
 admin.site.register(Product,ProductAdmin)
-
-
-
-class GasNewsAdmin(admin.ModelAdmin):
-    list_display = ('news_link',)
-admin.site.register(GasNews,GasNewsAdmin)
 
 
 class CustomerAdmin(admin.ModelAdmin):
