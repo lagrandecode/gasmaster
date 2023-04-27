@@ -6,10 +6,6 @@ class ProductSerializers(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
-class GasNewsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = GasNews
-        fields = '__all__'
 
 
 class CustomerSerializer(serializers.ModelSerializer):
