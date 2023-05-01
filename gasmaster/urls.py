@@ -22,6 +22,7 @@ urlpatterns = [
     path('',include('api.urls')),
     path('order/',include('order.urls')),
     path('news/',include('news.urls')),
+    path('feedback/',include('feedback.urls')),
 ]
 
 
