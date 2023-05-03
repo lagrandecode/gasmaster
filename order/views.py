@@ -61,6 +61,6 @@ class UpdateStatusView(generics.GenericAPIView):
         serializers = self.serializer_class(data=request.data,instance=order)
         if serializers.is_valid():
             serializers.save()
-            return Response(serilizers.data,status=status.HTTP_201_CREATED)
+            return Response(serializers.data,status=status.HTTP_201_CREATED)
         return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
         
