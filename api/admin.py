@@ -16,6 +16,6 @@ admin.site.register(Customer,CustomerAdmin)
 
 
 
-class FeedbackAdmin(admin.ModelAdmin):
-    list_display = ('name','feedback','date')
-admin.site.register(Feedback,FeedbackAdmin)
+# class FeedbackAdmin(admin.ModelAdmin):
+#     list_display = ('name','feedback','date')
+# admin.site.register(Feedback,FeedbackAdmin)
