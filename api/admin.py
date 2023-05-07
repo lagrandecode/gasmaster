@@ -13,12 +13,3 @@ admin.site.register(Customer,CustomerAdmin)
 
 
 
-
-
-
-<<<<<<< HEAD
-=======
-# class FeedbackAdmin(admin.ModelAdmin):
-#     list_display = ('name','feedback','date')
-# admin.site.register(Feedback,FeedbackAdmin)
->>>>>>> 916fbbdbb0a9507d657e7ad84134b2c8f0442de3
