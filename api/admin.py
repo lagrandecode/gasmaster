@@ -13,3 +13,9 @@ admin.site.register(Customer,CustomerAdmin)
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e5a11860f764571e651f00527d6cd7e3bbbfa6e2
