@@ -36,13 +36,15 @@ class MyUserManager(BaseUserManager):
 
 
 class User(AbstractUser):
-    username = models.CharField(max_length=35,unique=True)
+    username = None
     email = models.EmailField(max_length=80,unique=True)
     phone_number = models.CharField(max_length=14)
     address = models.CharField(max_length=50)
+    otp = models.CharField(max_length=200,null=True,blank=True)
+    isVerified = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username','phone_number','address']
+    REQUIRED_FIELDS = []
     objects = MyUserManager()
 
     def __str__(self):
