@@ -24,6 +24,8 @@ DEBUG = config('DEBUG',cast=bool)
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'registration.User'
+
 
 
 
@@ -43,6 +45,10 @@ INSTALLED_APPS = [
     'feedback',
     'registration.apps.RegistrationConfig',
 ]
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

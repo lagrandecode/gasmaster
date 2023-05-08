@@ -1,7 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 
 # Create your models here.
+
+
+User = get_user_model()
 
 class Product(models.Model):
     product_name = models.CharField(max_length=200)
@@ -18,7 +22,7 @@ class Product(models.Model):
 # This is customer model 
 class Customer(models.Model):
     name = models.CharField(max_length=250)
-    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    user = models.OneToOneField(User,on_delete=models.CASCADE,related_name='customer')
     profile_pics = models.ImageField(upload_to='images/',null=True,blank=True)
     address = models.CharField(max_length=100)
     mobile = models.CharField(max_length=200, null=False)
