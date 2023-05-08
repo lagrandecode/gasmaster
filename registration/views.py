@@ -41,4 +41,12 @@ class UserCreateView(generics.GenericAPIView):
     
 
 class VerifyView(generics.GenericAPIView):
-    pass
+    serializer_class = serializers.VerifySerializer
+    try:
+        def post(self,request):
+            serializer = self.serializer_class(data=request.data)
+
+
+
+    except Exception as e:
+        print(e)
