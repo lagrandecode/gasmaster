@@ -14,3 +14,8 @@ class UserCreationSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=['email','phone_number','password','address','isVerified']
+
+
+class VerifySerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp = serializers.CharField()

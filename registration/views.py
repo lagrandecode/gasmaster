@@ -38,3 +38,7 @@ class UserCreateView(generics.GenericAPIView):
             send_otp(serializer.data['email'])
             return Response(data=({'message':'account created, check your email for OTP'},serializer.data),status=status.HTTP_201_CREATED)
         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    
+
+class VerifyView(generics.GenericAPIView):
+    pass
