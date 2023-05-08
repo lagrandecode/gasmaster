@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'order',
     'news',
     'feedback',
+    'registration.apps.RegistrationConfig',
 ]
 
 MIDDLEWARE = [
