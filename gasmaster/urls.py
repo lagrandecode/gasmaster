@@ -19,10 +19,11 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('api.urls')),
+    path('product/',include('api.urls')),
     path('order/',include('order.urls')),
     path('news/',include('news.urls')),
     path('feedback/',include('feedback.urls')),
+    path('',include('registration.urls')),
 ]
 
 

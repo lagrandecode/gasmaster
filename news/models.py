@@ -10,3 +10,7 @@ class GasNews(models.Model):
     content = models.CharField(max_length=5000)
     news_link = models.URLField()
     created_date = models.DateField(auto_now_add=True)
+
+
+    class Meta:
+        verbose_name_plural = 'Gas News'

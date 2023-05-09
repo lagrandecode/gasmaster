@@ -24,6 +24,8 @@ DEBUG = config('DEBUG',cast=bool)
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'registration.User'
+
 
 
 
@@ -41,7 +43,12 @@ INSTALLED_APPS = [
     'order',
     'news',
     'feedback',
+    'registration.apps.RegistrationConfig',
 ]
+
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,3 +139,15 @@ MEDIA_ROOT = 'media'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_USE_TLS = True
+
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = 'djangosendmailtesting@gmail.com'
+
+EMAIL_HOST_PASSWORD = 'mwillnjuofnleqze'
