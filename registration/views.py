@@ -46,9 +46,22 @@ class VerifyView(generics.GenericAPIView):
         def post(self,request):
             serializer = self.serializer_class(data=request.data)
             if serializer.is_valid():
-                serializer.save()
-
-
-
+                email = serializer.data['email']
+                otp = serializer.data['otp']
+                user = User.objects.filter(email=email)
+                if not user.exist():
+                    return Response({message:'something is worng',
+                    data:'Invalid Email'
+                    },status=status.HTTP_400_BAD_REQUEST)
+                if user[0].otp !=otp:
+                    return Response({message:'something went wrong',data:'wring otp'},
+                    status=status.HTTP_400_BAD_REQUEST)
+                user = user.first()
+                user.isVerified = True
+                user.save()
+                return Response({message:'Account verified',data:{}
+                },status=status.HTTP_200_OK)
+            return Response(serializer.errors,
+            status=status.HTTP_400_BAD_REQUEST)
     except Exception as e:
         print(e)
