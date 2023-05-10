@@ -33,7 +33,7 @@ class FeedbackDetailView(generics.GenericAPIView):
         return Response(serializers.data,status=status.HTTP_200_OK)
     def put(self,request,pk):
         feedback = get_object_or_404(Feedback,id=pk)
-        serializers = self.serializer_class(data=request.data,feedback)
+        serializers = self.serializer_class(feedback,request.data)
         if serializers.is_valid():
             serializers.save()
             return Response(serializers.data,status=status.HTTP_200_OK)
