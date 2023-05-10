@@ -48,7 +48,7 @@ class VerifyView(generics.GenericAPIView):
             if serializer.is_valid():
                 email = serializer.data['email']
                 otp = serializer.data['otp']
-                user = User.objects.filter(email=email)
+                user = User.objects.get(email=email)
                 if not user.exist():
                     return Response({message:'something is worng',
                     data:'Invalid Email'
