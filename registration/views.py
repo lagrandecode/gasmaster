@@ -50,7 +50,7 @@ class VerifyView(generics.GenericAPIView):
                 otp = serializer.data['otp']
                 user = User.objects.get(email=email)
                 if not user.exist():
-                    return Response({message:'something is worng',
+                    return Response({message:'something is wrong',
                     data:'Invalid Email'
                     },status=status.HTTP_400_BAD_REQUEST)
                 if user[0].otp !=otp:
