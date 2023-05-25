@@ -24,7 +24,6 @@ urlpatterns = [
     path('news/',include('news.urls')),
     path('feedback/',include('feedback.urls')),
     path('',include('registration.urls')),
-    path('testing',include('testing.urls')),
 ]
 
 
