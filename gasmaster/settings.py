@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'news',
     'feedback',
     'registration.apps.RegistrationConfig',
+    'testing',
 ]
 
 

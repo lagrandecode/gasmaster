@@ -49,3 +49,7 @@ class User(AbstractUser):
 
     def __str__(self):
         return f"<User {self.email}"
+    
+class Addition(models.Model):
+    info = models.CharField(max_length=250)
+    desc = models.CharField(max_length=250)

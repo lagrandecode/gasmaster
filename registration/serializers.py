@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import User
+from .models import Addition
 
 
 
@@ -19,3 +20,9 @@ class UserCreationSerializer(serializers.ModelSerializer):
 class VerifySerializer(serializers.Serializer):
     email = serializers.EmailField()
     otp = serializers.CharField()
+
+
+class AddionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Addition
+        fields = '__all__'
