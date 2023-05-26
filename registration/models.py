@@ -51,5 +51,6 @@ class User(AbstractUser):
         return f"<User {self.email}"
     
 class Addition(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     info = models.CharField(max_length=250)
     desc = models.CharField(max_length=250)
