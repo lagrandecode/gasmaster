@@ -27,36 +27,30 @@ def send_otp(email):
 
 
 
-class UserCreationView(generics.GenericAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserCreationSerializer
-    def post(self,request):
-        user_serializer
+
         
 
 
 class AdditionView(generics.GenericAPIView):
     queryset = Addition.objects.all()
-    serializer_class = AddionSerializer
+    serializer_class = serializers.AddionSerializer
     def post(self,request):
         addition_serializer= self.AddionSerializer(data=request.data)
-
         if addition_serializer.is_valid():
-
             addition_serializer.save()
-            return Response({'meessage':'hllo'})
+            return Response(addition_serializer.data)
 
 
 
 class UserandProfileView(generics.GenericAPIView):
     queryset = UserCreationSerializer.objects.all()
-    serializer_class = UserCreationSerializer
+    serializer_class = serializers.UserCreationSerializer
     def post(self,request):
         user_serializer= self.UserCreationSerializer(data=request.data)
         if user_serializer.is_valid():
             
             addition_serializer.save()
-            return Response({'meessage':'hllo2'})
+            return Response(user_serializer.data)
 
 
 
