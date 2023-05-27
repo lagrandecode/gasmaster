@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 import random
 from .models import User,Addition
+from .serializers import AddionSerializer,UserCreationSerializer,VerifySerializer
 
 
 
@@ -32,7 +33,7 @@ def send_otp(email):
 
 
 class AdditionView(generics.GenericAPIView):
-    queryset = Addition.objects.all()
+    # queryset = Addition.objects.all()
     serializer_class = serializers.AddionSerializer
     def post(self,request):
         addition_serializer= self.AddionSerializer(data=request.data)
@@ -43,7 +44,7 @@ class AdditionView(generics.GenericAPIView):
 
 
 class UserandProfileView(generics.GenericAPIView):
-    queryset = UserCreationSerializer.objects.all()
+    # queryset = UserCreationSerializer.objects.all()
     serializer_class = serializers.UserCreationSerializer
     def post(self,request):
         user_serializer= self.UserCreationSerializer(data=request.data)
@@ -65,17 +66,17 @@ class UserandProfileView(generics.GenericAPIView):
 
 
 
-# class UserCreateView(generics.GenericAPIView):
-#     serializer_class = serializers.UserCreationSerializer
-#     queryset = User.objects.all()
+class UserCreateView(generics.GenericAPIView):
+    serializer_class = serializers.UserCreationSerializer
+    queryset = User.objects.all()
 
-#     def post(self,request):
-#         serializer = self.serializer_class(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             send_otp(serializer.data['email'])
-#             return Response(data=({'message':'account created, check your email for OTP'},serializer.data),status=status.HTTP_201_CREATED)
-#         return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+    def post(self,request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            send_otp(serializer.data['email'])
+            return Response(data=({'message':'account created, check your email for OTP'},serializer.data),status=status.HTTP_201_CREATED)
+        return Response(data=serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     
 
 class VerifyView(generics.GenericAPIView):
